@@ -515,8 +515,8 @@ if ((nrow(DPA_LowVariance[DPA_LowVariance$nzv,]))==0){
 |      **[B.1]** The <span style="color: #0000FF">findCorrelation</span> method using the <span style="color: #0000FF">cutoff</span> criteria with default setting at 0.90 from the <mark style="background-color: #CCECFF">**caret**</mark> package searches through a correlation matrix and returns a vector of integers corresponding to columns to remove to reduce pair-wise correlations.
 |      **[B.2]** The <span style="color: #0000FF">corr_cross</span> method using the <span style="color: #0000FF">top</span> criteria from the <mark style="background-color: #CCECFF">**lares**</mark> package lists out and ranks the variable-pairs with the highest correlation coefficients which were statistically significant.
 |
-| **[D]** The <span style="color: #0000FF">findCorrelation</span> method using <span style="color: #0000FF">cutoff</span> criteria set at 0.95 and the <span style="color: #0000FF">corr_cross</span> method using <span style="color: #0000FF">top</span> criteria set at 10 were applied on the dataset:
-|      **[D.1]** No highly correlated variables detected which may be optionally removed from the dataset for the subsequent analysis.
+| **[C]** The <span style="color: #0000FF">findCorrelation</span> method using <span style="color: #0000FF">cutoff</span> criteria set at 0.95 and the <span style="color: #0000FF">corr_cross</span> method using <span style="color: #0000FF">top</span> criteria set at 10 were applied on the dataset:
+|      **[C.1]** No highly correlated variables detected which may be optionally removed from the dataset for the subsequent analysis.
 |
 ```{r section_1.3.4, warning=FALSE, message=FALSE}
 ##################################
@@ -715,7 +715,7 @@ if (DPA_LinearlyDependentCount > 0) {
 |      **[B.2]** The <span style="color: #0000FF">scale</span> method from the <mark style="background-color: #CCECFF">**caret**</mark> package performs a center transformation with each value of the variable divided by its standard deviation. Scaling the data coerces the values to have a common standard deviation of one.
 |      **[B.3]** The <span style="color: #0000FF">range</span> method from the <mark style="background-color: #CCECFF">**caret**</mark> package scales the data to be within the defined numeric range bound.
 |
-| **[C]** The <span style="color: #0000FF">center</span>, <span style="color: #0000FF">scale</span> and <span style="color: #0000FF">range</span> methods were tried on the dataset. 
+| **[C]** The <span style="color: #0000FF">center</span>, <span style="color: #0000FF">scale</span> and <span style="color: #0000FF">range</span> methods were evaluated on the dataset. 
 |
 ```{r section_1.3.6, warning=FALSE, message=FALSE}
 ##################################
@@ -784,7 +784,7 @@ DPA_RangedTransformed <- predict(DPA_Ranged, DPA.Predictors.Numeric)
 |      **[B.2]** The <span style="color: #0000FF">YeoJohnson</span> method from the <mark style="background-color: #CCECFF">**caret**</mark> package transforms the distributional shape for variables with zero and/or negative values.
 |      **[B.3]** The <span style="color: #0000FF">expoTrans</span> method from the <mark style="background-color: #CCECFF">**caret**</mark> package transforms the distributional shape for variables with zero and/or negative values.
 |
-| **[C]** The <span style="color: #0000FF">BoxCox</span>, <span style="color: #0000FF">YeoJohnson</span> and <span style="color: #0000FF">expoTrans</span> methods were tried on the dataset. 
+| **[C]** The <span style="color: #0000FF">BoxCox</span>, <span style="color: #0000FF">YeoJohnson</span> and <span style="color: #0000FF">expoTrans</span> methods were evaluated on the dataset. 
 |
 ```{r section_1.3.7, warning=FALSE, message=FALSE}
 ##################################
@@ -851,7 +851,7 @@ DPA_ExpoTransTransformed <- predict(DPA_ExpoTrans, DPA.Predictors.Numeric)
 | **[B]** The <mark style="background-color: #CCECFF">**caret**</mark> package includes one method for creating dummy variables:
 |      **[B.1]** The <span style="color: #0000FF">dummyVars</span> method from the <mark style="background-color: #CCECFF">**caret**</mark> package generates a complete (less than full rank parameterized) set of dummy variables from one or more factors.
 |
-| **[C]** The <span style="color: #0000FF">dummyVars</span> method was tried on the dataset. 
+| **[C]** The <span style="color: #0000FF">dummyVars</span> method was evaluated on the dataset. 
 |
 ```{r section_1.3.8, warning=FALSE, message=FALSE}
 ##################################
@@ -898,7 +898,7 @@ if (length(names(DPA.Predictors.Factor))>0) {
 | **[B]** The <mark style="background-color: #CCECFF">**caret**</mark> package includes one method for performing data exploration:
 |      **[B.1]** The <span style="color: #0000FF">featurePlot</span> method from the <mark style="background-color: #CCECFF">**caret**</mark> package generates various graphs (box, strip, density, correlation pairs and correlation ellipse plots) for exploring and visualizing the potential relationships between the response and predictor variables.
 |
-| **[C]** The <span style="color: #0000FF">featurePlot</span> method was tried on the dataset. 
+| **[C]** The <span style="color: #0000FF">featurePlot</span> method was evaluated on the dataset. 
 |
 ```{r section_1.4, warning=FALSE, message=FALSE, fig.width=15, fig.height=20}
 ##################################
