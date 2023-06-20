@@ -37,6 +37,9 @@ knitr::opts_chunk$set(echo = TRUE, fig.width=15, fig.height=10)
 |      **[B.2]** 7/8 predictors = All remaining variables (2/7 factor + 5/7 numeric)
 |     
 | 
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.1, warning=FALSE, message=FALSE}
 ##################################
 # Loading R libraries
@@ -75,6 +78,8 @@ PDA <- schedulingData
 )
 ```
 
+</details>
+
 ##  1.2 Data Quality Assessment
 |
 | Data quality assessment:
@@ -94,6 +99,10 @@ PDA <- schedulingData
 |      **[D.3]** <span style="color: #FF0000">Iterations</span> variable (numeric)
 |      **[D.4]** <span style="color: #FF0000">NumPending</span> variable (numeric)
 |
+| 
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.2, warning=FALSE, message=FALSE}
 ##################################
 # Loading dataset
@@ -307,6 +316,8 @@ if (length(names(DQA.Predictors.Numeric))==0) {
 
 ```
 
+</details>
+
 ##  1.3 Data Preprocessing
 
 ### 1.3.1 Missing Data Imputation
@@ -322,6 +333,10 @@ if (length(names(DQA.Predictors.Numeric))==0) {
 |      **[C.2]** The <span style="color: #0000FF">bagimpute</span> method fits a bagged tree model for each predictor (as a function of all the others).
 |      **[C.3]** The <span style="color: #0000FF">medianimpute</span> method takes the median of each predictor in the training set, and uses them to fill missing values.
 |
+| 
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.3.1, warning=FALSE, message=FALSE}
 ##################################
 # Loading dataset
@@ -341,6 +356,8 @@ skim() %>%
 dplyr::filter(n_missing > 0)
 ```
 
+</details>
+
 ### 1.3.2 Outlier Treatment
 |
 | Outlier data assessment:
@@ -355,6 +372,10 @@ dplyr::filter(n_missing > 0)
 | **[D]** The <span style="color: #0000FF">spatialSign</span> methods was applied on the dataset: 
 |      **[D.1]** While data distribution generally improved with the number of remaining outliers reduced, there are still 4 variables noted with outliers using the IQR criterion.
 |
+| 
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.3.2, warning=FALSE, message=FALSE, fig.width=15, fig.height=3}
 ##################################
 # Loading dataset
@@ -435,6 +456,8 @@ print(paste0(NumericPredictorWithOutlierCount, " numeric variable(s) were noted 
 
 ```
 
+</details>
+
 ### 1.3.3 Zero and Near-Zero Variance
 |
 | Zero and near-zero variance data assessment:
@@ -450,6 +473,10 @@ print(paste0(NumericPredictorWithOutlierCount, " numeric variable(s) were noted 
 | **[D]** The <span style="color: #0000FF">nearZeroVar</span> method using both the <span style="color: #0000FF">freqCut</span> and <span style="color: #0000FF">uniqueCut</span> criteria set at 80/20 and 10, respectively, were applied on the dataset:
 |      **[D.1]** 2 variables may be optionally removed from the dataset for the subsequent analysis.
 |
+| 
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.3.3, warning=FALSE, message=FALSE}
 ##################################
 # Loading dataset
@@ -511,6 +538,8 @@ if ((nrow(DPA_LowVariance[DPA_LowVariance$nzv,]))==0){
 
 ```
 
+</details>
+
 ### 1.3.4 Collinearity
 |
 | High collinearity data assessment:
@@ -524,6 +553,10 @@ if ((nrow(DPA_LowVariance[DPA_LowVariance$nzv,]))==0){
 | **[C]** The <span style="color: #0000FF">findCorrelation</span> method using <span style="color: #0000FF">cutoff</span> criteria set at 0.95 and the <span style="color: #0000FF">corr_cross</span> method using <span style="color: #0000FF">top</span> criteria set at 10 were applied on the dataset:
 |      **[C.1]** No highly correlated variables detected which may be optionally removed from the dataset for the subsequent analysis.
 |
+| 
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.3.4, warning=FALSE, message=FALSE}
 ##################################
 # Loading dataset
@@ -618,6 +651,8 @@ if (DPA_HighlyCorrelatedCount > 0) {
 
 ```
 
+</details>
+
 ### 1.3.5 Linear Dependencies
 |
 | Linear dependency data assessment:
@@ -630,6 +665,10 @@ if (DPA_HighlyCorrelatedCount > 0) {
 | **[C]** The <span style="color: #0000FF">findLinearCombos</span> method was applied on the dataset:
 |      **[C.1]** No linearly dependent variables were identified which may be optionally removed from the dataset for the subsequent analysis.
 |
+| 
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.3.5, warning=FALSE, message=FALSE}
 ##################################
 # Loading dataset
@@ -710,6 +749,8 @@ if (DPA_LinearlyDependentCount > 0) {
 
 ```
 
+</details>
+
 ### 1.3.6 Centering and Scaling
 |
 | Centering and scaling data assessment:
@@ -723,6 +764,11 @@ if (DPA_LinearlyDependentCount > 0) {
 |
 | **[C]** The <span style="color: #0000FF">center</span>, <span style="color: #0000FF">scale</span> and <span style="color: #0000FF">range</span> methods were evaluated on the dataset. 
 |
+| 
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
+
 ```{r section_1.3.6, warning=FALSE, message=FALSE}
 ##################################
 # Loading dataset
@@ -779,6 +825,8 @@ DPA_RangedTransformed <- predict(DPA_Ranged, DPA.Predictors.Numeric)
 
 ```
 
+</details>
+
 ### 1.3.7 Shape Transformation
 |
 | Data transformation assessment:
@@ -792,6 +840,10 @@ DPA_RangedTransformed <- predict(DPA_Ranged, DPA.Predictors.Numeric)
 |
 | **[C]** The <span style="color: #0000FF">BoxCox</span>, <span style="color: #0000FF">YeoJohnson</span> and <span style="color: #0000FF">expoTrans</span> methods were evaluated on the dataset. 
 |
+| 
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.3.7, warning=FALSE, message=FALSE}
 ##################################
 # Loading dataset
@@ -848,6 +900,8 @@ DPA_ExpoTransTransformed <- predict(DPA_ExpoTrans, DPA.Predictors.Numeric)
 
 ```
 
+</details>
+
 ### 1.3.8 Dummy Variables
 |
 | Dummy variable creation assessment:
@@ -859,6 +913,10 @@ DPA_ExpoTransTransformed <- predict(DPA_ExpoTrans, DPA.Predictors.Numeric)
 |
 | **[C]** The <span style="color: #0000FF">dummyVars</span> method was evaluated on the dataset. 
 |
+| 
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.3.8, warning=FALSE, message=FALSE}
 ##################################
 # Loading dataset
@@ -895,6 +953,8 @@ if (length(names(DPA.Predictors.Factor))>0) {
 }
 ```
 
+</details>
+
 ##  1.4 Data Exploration
 |
 | Data exploration assessment:
@@ -906,6 +966,10 @@ if (length(names(DPA.Predictors.Factor))>0) {
 |
 | **[C]** The <span style="color: #0000FF">featurePlot</span> method was evaluated on the dataset. 
 |
+| 
+
+<details><summary><mark style="background-color: #000000;color: #FFFFFF">**Code Chunk | Output**</mark></summary>
+
 ```{r section_1.4, warning=FALSE, message=FALSE, fig.width=15, fig.height=20}
 ##################################
 # Loading dataset
@@ -968,6 +1032,8 @@ featurePlot(x = DPA.Predictors.Numeric,
             auto.key = list(columns = (length(levels(DPA$Class)))))
 
 ```
+
+</details>
 
 # **2. References**
 |
