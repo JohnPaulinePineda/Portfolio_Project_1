@@ -1,5 +1,5 @@
 ---
-title: 'R : Data Quality Assessment, Preprocessing and Exploration for a Classification Modelling Problem'
+title: 'Data Preprocessing : Data Quality Assessment, Preprocessing and Exploration for a Classification Modelling Problem'
 author: "John Pauline Pineda"
 date: "February 8, 2022"
 output: 
