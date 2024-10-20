@@ -1052,7 +1052,7 @@ featurePlot(x = DPA.Predictors.Numeric,
 | **[R Package]** [RANN](https://cran.r-project.org/web/packages/RANN/RANN.pdf) by  Sunil Arya, David Mount, Samuel Kemp and Gregory Jefferis
 | **[R Package]** [corrplot](https://cran.r-project.org/web/packages/corrplot/corrplot.pdf) by Taiyun Wei
 | **[R Package]** [lares](https://cran.rstudio.com/web/packages/lares/lares.pdf) by Bernardo Lares
-| **[R Package]** [DMwR](https://mran.microsoft.com/snapshot/2016-05-02/web/packages/DMwR/DMwR.pdf) by Luis Torgo
+| **[R Package]** [DMwR2](https://mran.microsoft.com/snapshot/2016-05-02/web/packages/DMwR/DMwR.pdf) by Luis Torgo
 | **[Article]** [The caret Package](https://topepo.github.io/caret/index.html) by Max Kuhn
 | **[Article]** [A Short Introduction to the caret Package](https://cran.r-project.org/web/packages/caret/vignettes/caret.html) by Max Kuhn
 | **[Article]** [Caret Package – A Practical Guide to Machine Learning in R](https://www.machinelearningplus.com/machine-learning/caret-package/#:~:text=Caret%20is%20short%20for%20Classification%20And%20REgression%20Training.,track%20of%20which%20algorithm%20resides%20in%20which%20package.) by Selva Prabhakaran
